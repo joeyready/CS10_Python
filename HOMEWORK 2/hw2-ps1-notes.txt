@@ -1,0 +1,11 @@
+lottery game
+
+generate rand num
+
+userinput 2 digit int
+
+
+code to test for matches. either one digit, both digits but swtiched, as well as exact match
+
+flag to quit loop
+
