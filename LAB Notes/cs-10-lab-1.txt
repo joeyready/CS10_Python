@@ -1,0 +1,1 @@
+1. Use the internet to find out what is the order of precedence for Python numeric operators.
