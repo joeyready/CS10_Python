@@ -43,27 +43,27 @@ def test_functions(test):
     replaceNeighbors(data)  # call this function
     print("After replacing with neighbors: ", data)
 
-    # # e. Demonstrate removing the middle element.
-    # data = list(test)
-    # removeMiddle(data)  # call this function
-    # print("After removing the middle element(s): ", data)
-    #
-    # # f. Demonstrate moving even elements to the front of the list.
-    # data = list(test)
-    # evenToFront(data)  # call this function
-    # print("After moving even elements: ", data)
-    #
-    # # g. Demonstrate finding the second largest value.
-    # print("The second largest value is: ", secondLargest(test))
-    #
-    # # h. Demonstrate testing if the list is in increasing order.
-    # print("The list is in increasing order: ", isIncreasing(test))
-    #
-    # # i. Demonstrate testing if the list contains adjacent duplicates.
-    # print("The list has adjacent duplicates: ", hasAdjacentDuplicate(test))
-    #
-    # # j. Demonstrate testing if the list contains duplicates.
-    # print("The list has duplicates: ", hasDuplicate(test))
+    # e. Demonstrate removing the middle element.
+    data = list(test)
+    removeMiddle(data)  # call this function
+    print("After removing the middle element(s): ", data)
+
+    # f. Demonstrate moving even elements to the front of the list.
+    data = list(test)
+    evenToFront(data)  # call this function
+    print("After moving even elements: ", data)
+
+    # g. Demonstrate finding the second largest value.
+    print("The second largest value is: ", secondLargest(test))
+
+    # h. Demonstrate testing if the list is in increasing order.
+    print("The list is in increasing order: ", isIncreasing(test))
+
+    # i. Demonstrate testing if the list contains adjacent duplicates.
+    print("The list has adjacent duplicates: ", hasAdjacentDuplicate(test))
+
+    # j. Demonstrate testing if the list contains duplicates.
+    print("The list has duplicates: ", hasDuplicate(test))
 
 
 # Complete the codes for the functions a. to j. below.
@@ -107,52 +107,95 @@ def replaceNeighbors(data: list) -> None:
             data[i] = right_num
 
 
+# e.
+def removeMiddle(data: list) -> None:
+    '''Remove the middle element or elements from a list.'''
 
-# # e.
-# def removeMiddle(data: list) -> None:
-#     '''Remove the middle element or elements from a list.'''
-#     ??? replace
-#     with your codes here ???
-#
-#
-# # f.
-# def evenToFront(data: list) -> None:
-#     '''Move even elements to the front of the list.'''
-#     ??? replace
-#     with your codes here ???
-#
-#
-# # g.
-# def secondLargest(data: list) -> int:
-#     '''Identify the second largest value in a list.
-#         return the second largest value in the list'''
-#     ??? replace
-#     with your codes here ???
-#
-#
-# # h.
-# def isIncreasing(data: list) -> bool:
-#     '''Determine whether or not the list is in increasing order.
-#         return True if the list is in increasing order, False otherwise'''
-#     ??? replace
-#     with your codes here ???
-#
-#
-# # i.
-# def hasAdjacentDuplicate(data: list) -> bool:
-#     '''Determine if the list contains adjacent duplicate elements.
-#        return True if the list contains adjacent duplicates, False otherwise'''
-#     ??? replace
-#     with your codes here ???
-#
-#
-# # j.
-# def hasDuplicate(data: list) -> bool:
-#     '''Determine if the list contains duplicate elements.
-#         return True if the list contains duplicates, False otherwise'''
-#     ??? replace
-#     with your codes here ???
-#
+    length_of_list = len(data)
+    middle = length_of_list // 2
+    # print(length_of_list)
+
+    if length_of_list % 2 == 1:
+        data.pop(middle)
+
+    else:
+        data.pop(middle - 1)
+        data.pop(middle - 1)
+
+
+# f.
+def evenToFront(data: list) -> None:
+    '''Move even elements to the front of the list.'''
+
+    #create new list 'even'
+    even_nums = []
+
+    #delete even numbers from data and append to new list
+
+    for i in range(len(data) - 1, -1, -1):
+        if data[i] % 2 == 0:
+            even_num = data.pop(i)
+            even_nums.insert( 0 , even_num)
+
+        #append new list to data at 0
+    data[:0] = even_nums
+
+
+# g.
+def secondLargest(data: list) -> int:
+    '''Identify the second largest value in a list.
+        return the second largest value in the list'''
+    sorted_list = list(data)
+    #sort data small to big
+    sorted_list.sort()
+
+    #return index -2
+    return sorted_list[-2]
+
+
+# h.
+def isIncreasing(data: list) -> bool:
+    '''Determine whether or not the list is in increasing order.
+        return True if the list is in increasing order, False otherwise'''
+    # compare each item in list with item after it
+
+    for i in range(len(data) - 2):
+        if data[i] >= data[i + 1]:
+            return False
+
+    return True
+
+
+# i.
+def hasAdjacentDuplicate(data: list) -> bool:
+    '''Determine if the list contains adjacent duplicate elements.
+       return True if the list contains adjacent duplicates, False otherwise'''
+
+    for i in range(len(data) - 2):
+
+        if data[i] == data[i + 1]:
+            return True
+
+    return False
+
+
+# j.
+def hasDuplicate(data: list) -> bool:
+    '''Determine if the list contains duplicate elements.
+        return True if the list contains duplicates, False otherwise'''
+
+    # sort data small to big
+    data.sort()
+
+    #copy Function i
+
+    for i in range(len(data) - 2):
+
+        if data[i] == data[i + 1]:
+            return True
+
+    return False
+
 
 if __name__ == "__main__":
     main()
