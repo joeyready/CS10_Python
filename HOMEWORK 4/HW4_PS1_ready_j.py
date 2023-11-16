@@ -71,8 +71,10 @@ def test_functions(test):
 # a.
 def swapFirstLast(data: list) -> None:
     '''Swap the first and last element in a list.'''
+
     first_num = data[0]
     last_num = data[-1]
+
     data[0] = last_num
     data[-1] = first_num
 
@@ -80,7 +82,9 @@ def swapFirstLast(data: list) -> None:
 # b.
 def shiftRight(data: list) -> None:
     '''Shift the elements to the right.'''
+
     temp = data[-1]
+
     for i in range(len(data)-1, -1, -1):
         data[i] = data[i-1]
     data[0] = temp
@@ -89,8 +93,9 @@ def shiftRight(data: list) -> None:
 # c.
 def replaceEven(data: list) -> None:
     '''Replace all even elements in the list with 0.'''
+
     for i in range(len(data)):
-        if data[i] %2 == 0:
+        if data[i] % 2 == 0:
             data[i] = 0
 
 
@@ -113,11 +118,9 @@ def removeMiddle(data: list) -> None:
 
     length_of_list = len(data)
     middle = length_of_list // 2
-    # print(length_of_list)
 
     if length_of_list % 2 == 1:
         data.pop(middle)
-
     else:
         data.pop(middle - 1)
         data.pop(middle - 1)
@@ -127,17 +130,16 @@ def removeMiddle(data: list) -> None:
 def evenToFront(data: list) -> None:
     '''Move even elements to the front of the list.'''
 
-    #create new list 'even'
+    # create new list 'even'
     even_nums = []
 
-    #delete even numbers from data and append to new list
-
+    # delete even numbers from data and append to new list
     for i in range(len(data) - 1, -1, -1):
         if data[i] % 2 == 0:
             even_num = data.pop(i)
-            even_nums.insert( 0 , even_num)
+            even_nums.insert(0, even_num)
 
-        #append new list to data at 0
+    # append new list to data at 0
     data[:0] = even_nums
 
 
@@ -145,11 +147,14 @@ def evenToFront(data: list) -> None:
 def secondLargest(data: list) -> int:
     '''Identify the second largest value in a list.
         return the second largest value in the list'''
+
+    # make new list to be sorted
     sorted_list = list(data)
-    #sort data small to big
+
+    # sort data small to big
     sorted_list.sort()
 
-    #return index -2
+    # return index -2
     return sorted_list[-2]
 
 
@@ -157,8 +162,8 @@ def secondLargest(data: list) -> int:
 def isIncreasing(data: list) -> bool:
     '''Determine whether or not the list is in increasing order.
         return True if the list is in increasing order, False otherwise'''
-    # compare each item in list with item after it
 
+    # compare each item in list with item after it
     for i in range(len(data) - 2):
         if data[i] >= data[i + 1]:
             return False
@@ -187,8 +192,7 @@ def hasDuplicate(data: list) -> bool:
     # sort data small to big
     data.sort()
 
-    #copy Function i
-
+    # copy Function hasAdjacentDuplicate() from i.
     for i in range(len(data) - 2):
 
         if data[i] == data[i + 1]:
@@ -199,5 +203,3 @@ def hasDuplicate(data: list) -> bool:
 
 if __name__ == "__main__":
     main()
-
-
